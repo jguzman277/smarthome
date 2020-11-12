@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Top Smart Home Devices of 2020</h1>
+
+<p class="m-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus faucibus, sem non imperdiet fringilla, augue sapien tempor felis, eu porta leo enim id metus. Etiam dignissim pretium arcu non mollis.</p>
+
+<% @products.each do |product| %>
+  <div class="card mb-10" style="margin-bottom: 15px">
+
+    <%= link_to product do %>
+      <div class="card-header">
+        <%= product.product_name %>
+      </div>
+    <% end %>
+
+    <div class="card-body">
+      <div class="card-text">
+        <p><%= product.product_description %></p>
+        <p><strong>Model: </strong><%= product.model %></p>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <%= link_to 'Edit', edit_product_path(product) %> |
+      <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+
+  </div>
+<% end %>
